@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<!-- Place your content here -->
+<!-- SCRIPTS -->
+<script src="./js/packege.js"></script>
+<script>
+  
+//js.object.interface = function
+var js = packege();
+//printProp(packege);
+//js.accecer.final("a");
+(function(){
+	// private static scope
+	//	var private_static_variable = "private static";
+		 
+ 	return js.lang.class ( "ClassTest" ,
+ 	    function (self,public,protected,static){
+ 	   static.public_static_variable = "i'm public_static_variable ";
+ 	// local scope 
+ 	// public variable provide access  
+ 	    var private_variable = "i 'm private variable"; 
+ 		public.test_method = function(){ return "i'm public method"; }
+ 		public.get_private_variable = function(){ return private_variable; }
+ 		public.set_private_variable = function(v){ private_variable = v; }
+ 		public.get_private_static_variable = function(){ return private_static_variable; }
+ 		public.set_private_static_variable = function(v){ private_static_variable = v; }
+ 		protected.protected_variable = "i 'm protected!"; 
+ 		//js.util.protected.defined(this);
+ 	//local send 	
+ 	}, protected = true,static= true);
+})();
+
+var a = js.defined.class.ClassTest.new();
+
+
+(function(){
+    return js.lang.extends("ExtendsTest",js.defined.class.ClassTest,
+    	function (parent,public,protected,static){
+    		public.test = "a";
+    		public.call_protected_variable = function(){ return protected.protected_variable; }
+    		public.set_protected_variable = function(v){ protected.protected_variable = v; }
+    			
+ 	 },protected=true,static=true );		
+})();
+
+var $ = js.defined.class;
+var testA = $.ExtendsTest.new();
+var count = 60000; 
+
+ (function(){js.lang.interface("InterfaceTest", {testfunc:"testfunc"})()}());
+ (function(){
+	return js.lang.class ( "ImplementsTest" ,
+ 	     function ( self,public,protected,static){
+ 	     
+      console.log("____");
+ 	  js.lang.implement(public,js.defined.interface.InterfaceTest);
+ 	    printProp(public);
+ 	    console.log("____");
+
+ 	    
+ 	         });
+ })();
+var testA =  js.defined.class.ImplementsTest.new();
+printProp(testA);
+
+var startTime , endTime;
+startTime = Date.now();
+	for(var i = 0; i < count ; i++ )
+		var ar = new Object();
+endTime = Date.now();
+console.log(endTime - startTime + "ms");
+
+var startTime , endTime;
+startTime = Date.now();
+	for(var i = 0; i < count ; i++ )
+	//	var ob = $.ImplementsTest.new();
+endTime = Date.now();
+console.log(endTime - startTime + "ms");
+   var g = Function('return this')();	
+  	
+  	function printProp(p) {
+		for(var propName in p) {
+    		propValue = p[propName]
+    	console.log(propName,propValue);
+		}
+	}	 
+  </script>
+</body>
+</html>
