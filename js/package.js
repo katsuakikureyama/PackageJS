@@ -1,5 +1,5 @@
 /**
-PackegeJS
+PackageJS
 
 Copyright (c) 2017 katsuakikureyama
 
@@ -13,8 +13,8 @@ http://opensource.org/licenses/mit-license.php
 		}
 }*/	 
 
-var packege = packege || (function (use){ 
-var PackegeJS = PackegeJS ||  function (js){
+var package = package || (function (use){ 
+var PackageJS = PackageJS ||  function (js){
 js.lang = js.lang || {}; js.lib = js.lib || {};
 js.lang.object = function(body){return function(){ var _={}; body(_); return _; }; }
 js.instance = function(){
@@ -92,9 +92,9 @@ js.lang.implements = function(acceser,impl){
 } 
 js.lang.struct = function() { var args = arguments , len = args.length; if((len % 2)!=0) throw new Error( Object.keys(this)[0] + "argument nunber is invalid");	var obj = {}; for(var i=0;i < len ; i += 2) obj[args[i]] = args[i+1];return function(){ return obj; }; }
 
-return js; }({})();
-PackegeJS.lib = PackegeJS.lib || 
-{ accessor : { final: Object.freeze }}; return PackegeJS; });
+return js; }({});
+PackageJS.lib = PackageJS.lib || 
+{ accessor : { final: Object.freeze }}; return PackageJS; })();
 
   
 

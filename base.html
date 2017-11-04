@@ -16,7 +16,7 @@ pre,code{margin:8%;}
 <!-- Place your content here -->
 <!-- SCRIPTS -->
 <article class="main">
-<script src="./js/packege.js"></script>
+<script src="./js/package.js"></script>
 <script>
 /* for test */
    function printProperty(p) {
@@ -45,7 +45,7 @@ if you care memory manage , you need to thinking about JavaScript structure.
 especially ,for circular reference.
 
 
-this library has some namespace as packege.
+this library has some namespace as package.
 also , name space concept was made like a Java .
 in my plan , if i create javascript library , 
 will expansion to Package JS .
@@ -62,18 +62,18 @@ Package JS has minimum package .
          package.instance
          package.defined 
 
-package.lang has some packege.
+package.lang has some package.
 
-        packege.lang.object
-        packege.lang.class
-        packege.lang.extends
-        packege.lang.interface
-        packege.lang.struct
+        package.lang.object
+        package.lang.class
+        package.lang.extends
+        package.lang.interface
+        package.lang.struct
         
 for example ,  you can use minimum object.
  <code>               
 var TestObj = function(){
-	return packege.lang.object ( function (public){
+	return package.lang.object ( function (public){
 　　　　　public.test_variable = "i 'm test variable!";
                   public.test_function = function(){ alert(public.test_variable); } 			
  		}
@@ -98,7 +98,7 @@ but, it has more useful accessor .
 		
 		var private_static_variable = "private static";		 
  	
- 	return js.lang.class ( "Foo" ,
+ 	return package.lang.class ( "Foo" ,
  	    function (self,public,static,protected){
  	// local scope 
  	
@@ -139,12 +139,11 @@ but, it has more useful accessor .
 </code>
 </pre>
 <script>
-var js = packege;
-var $ = js.defined;
+var $ = package.defined;
 (function(){   
 	//  private static scope
 		var private_static_variable = "private static";		 
- 	return js.lang.class ( "Foo" ,
+ 	return package.lang.class ( "Foo" ,
  	    function (self,public,static,protected){
  	// local scope 
  	    static.public_static_variable = "i'm public_static_variable ";
@@ -187,7 +186,7 @@ var $ = js.defined;
 <code>
 /* parent class */
 (function(){   
-	return js.lang.class ( "Bar" ,
+	return package.lang.class ( "Bar" ,
  	    function (self,public,static,protected){
  	// local scope 
  	    public.public_variable = "i'm public";	
@@ -198,7 +197,7 @@ var $ = js.defined;
 })();
 /* child class */
 (function(){
-    return js.lang.extends("Baz",js.defined.class.Bar,
+    return package.lang.extends("Baz",package.defined.class.Bar,
     	function (parent,public,protected,static){
     	    console.log(protected);
     		public.call_protected_variable = function(){ return protected.protected_variable; }
@@ -222,7 +221,7 @@ var BazB = $.class.Baz.new();
 <script>
 /* parent class */
 (function(){   
-	return js.lang.class ( "Bar" ,
+	return package.lang.class ( "Bar" ,
  	    function (self,public,static,protected){
  	// local scope 
  	    public.public_variable = "i'm public";	
@@ -233,7 +232,7 @@ var BazB = $.class.Baz.new();
 })();
 /* child class */
 (function(){
-    return js.lang.extends("Baz",js.defined.class.Bar,
+    return package.lang.extends("Baz",package.defined.class.Bar,
     	function (parent,public,protected,static){
     	    console.log(protected);
     		public.call_protected_variable = function(){ return protected.protected_variable; }
@@ -261,32 +260,32 @@ Implements was different from other language.
 interface apply self method to accessor that you select.
 <code>
 /* interface */
- (function(){js.lang.interface("InterfaceTest", {interface_variable:"I'm Interface"})()}());
+ (function(){package.lang.interface("InterfaceTest", {interface_variable:"I'm Interface"})()}());
  /* implements */
  (function(){
-	return js.lang.class ( "Qux" ,
+	return package.lang.class ( "Qux" ,
  	     function ( self,public,protected,static){
  	
- 	        js.lang.implements(public,js.defined.interface.InterfaceTest);
+ 	        package.lang.implements(public,package.defined.interface.InterfaceTest);
     
  	         });
  })();
-var Qux =  js.defined.class.Qux.new();
+var Qux =  package.defined.class.Qux.new();
  console.log( Qux._.interface_variable);
 </code>
 <script>
 /* interface */
- (function(){js.lang.interface("InterfaceTest", {interface_variable:"I'm Interface"})()}());
+ (function(){package.lang.interface("InterfaceTest", {interface_variable:"I'm Interface"})()}());
  /* implements */
  (function(){
-	return js.lang.class ( "Qux" ,
+	return package.lang.class ( "Qux" ,
  	     function ( self,public,protected,static){
  	
- 	        js.lang.implements(public,js.defined.interface.InterfaceTest);
+ 	        package.lang.implements(public,package.defined.interface.InterfaceTest);
     
  	         });
  })();
-var Qux =  js.defined.class.Qux.new();
+var Qux =  package.defined.class.Qux.new();
  console.log( Qux._.interface_variable);
 </script>
 </pre>
