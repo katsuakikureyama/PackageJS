@@ -1,40 +1,38 @@
 # PackegeJS
 
 ## Conception
-    create similar class object that has accessor by prototype chain control .
-    for instance , static public private protected and exteds ,interface .
+create similar class object that has accessor by prototype chain control .
+for instance , static public private protected and exteds ,interface .
 
-    if you know well more  object-oriented programming launguage ,
-    you will understand concept soon .
+if you know well more  object-oriented programming launguage ,
+you will understand concept soon .
 
-    object , accessor concept was made like a Java .
-    but , you not need to native keyword new .
+object , accessor concept was made like a Java .
+but , you not need to native keyword new .
 
-    because , PackegeJS has concept that memory control .
-    so ,this library being careful to prototype chain .
-    but , this library not Stable version.
-    if you care memory manage , you need to thinking about JavaScript structure.
-    especially ,for circular reference.
+because , PackegeJS has concept that memory control .
+so ,this library being careful to prototype chain .
+but , this library not Stable version.
+if you care memory manage , you need to thinking about JavaScript structure.
+especially ,for circular reference.
+If you find a bug, please let me know.
 
+this library has some namespace as packege.
+also , name space concept was made like a Java .
+in my plan , if i create javascript library ,
+will expansion to Package JS .
 
-    this library has some namespace as packege.
-    also , name space concept was made like a Java .
-    in my plan , if i create javascript library ,
-    will expansion to Package JS .
-
-    Package JS provide namespace and object-oriented programming for javascript.
+Package JS provide namespace and object-oriented programming for javascript.
 
 ## Description
 
-
-
-    Package JS has minimum package .
+Package JS has minimum package .
 
         package.lang
         package.instance
         package.defined
 
-    package.lang has some packege.
+package.lang has some packege.
 
         packege.lang.object
         packege.lang.class
@@ -42,7 +40,7 @@
         packege.lang.interface
         packege.lang.struct
 
-    for example ,  you can use minimum object.
+for example ,  you can use minimum object.
 
     var TestObj = function(){
     return packege.lang.object ( function (public){
@@ -137,8 +135,9 @@
         　 　　console.log( BazA.$.public_static_variable);
 　　　　　
 ## How to use Implements
-        Implements was different from other language.
-        interface apply self method to accessor that you select.
+
+Implements was different from other language.
+interface apply self method to accessor that you select.
         
         /* interface */
         　　(function(){js.lang.interface("InterfaceTest", {interface_variable:"I'm Interface"})()}());
