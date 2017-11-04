@@ -1,4 +1,4 @@
-# PackegeJS
+# PackageJS
 
 ## Conception
 create similar class object that has accessor by prototype chain control .
@@ -10,14 +10,14 @@ you will understand concept soon .
 object , accessor concept was made like a Java .
 but , you not need to native keyword new .
 
-because , PackegeJS has concept that memory control .
+because , PackageJS has concept that memory control .
 so ,this library being careful to prototype chain .
 but , this library not Stable version.
 if you care memory manage , you need to thinking about JavaScript structure.
 especially ,for circular reference.
 If you find a bug, please let me know.
 
-this library has some namespace as packege.
+this library has some namespace as package.
 also , name space concept was made like a Java .
 in my plan , if i create javascript library ,
 will expansion to Package JS .
@@ -32,18 +32,18 @@ Package JS has minimum package .
         package.instance
         package.defined
 
-package.lang has some packege.
+package.lang has some package.
 
-        packege.lang.object
-        packege.lang.class
-        packege.lang.extends
-        packege.lang.interface
-        packege.lang.struct
+        package.lang.object
+        package.lang.class
+        package.lang.extends
+        package.lang.interface
+        package.lang.struct
 
 for example ,  you can use minimum object.
 
     var TestObj = function(){
-    return packege.lang.object ( function (public){
+    return package.lang.object ( function (public){
     　　　　public.test_variable = "i 'm test variable!";
     　　　　public.test_function = function(){ alert(public.test_variable); }
     　　　　}
