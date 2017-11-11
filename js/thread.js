@@ -16,7 +16,7 @@ package.lang.thread.worker = function(){
     		var b = new Blob( [ s ], {type : "text/javascript"} );
   	         task_url = window.URL.createObjectURL( b );		
     	}
- 	 public.run = function(tag){ 
+ 	 public.run = function(){ 
  	     	return new Worker(task_url ); 		   
 	 	}
  	} );
