@@ -15,7 +15,7 @@ package.io.bluetooth = function(){
      var services = [{service:[]}];
      var characteristics = [];
   
-	return js.lang.create ( function (public){
+	return js.lang.object ( function (public){
       
         public.set_scan_service = function(service){
                this.services[0].service.push(service);
@@ -25,7 +25,7 @@ package.io.bluetooth = function(){
                    this.characteristics.push(characteristic);
         }
         
- 		private.scan = function(request){
+ 		this.scan = function(request){
  		   request.then(device =>{
            // device was fined
           return device.connectGATT();
@@ -57,10 +57,10 @@ package.io.bluetooth = function(){
         });
         }
  		public.request_all = function(){ 
- 		  private.scan( navigator.bluetooth.requestDevice({filters: anyDevice()}));
+ 		  this.scan( navigator.bluetooth.requestDevice({filters: anyDevice()}));
  		}
  		public.request = function(){ 
- 		  private.scan ( navigator.bluetooth.requestDevice({ filters: [this.services] }));
+ 		  this.scan ( navigator.bluetooth.requestDevice({ filters: [this.services] }));
  		}
  } );
 
