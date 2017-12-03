@@ -15,6 +15,10 @@ http://opensource.org/licenses/mit-license.php
 
 var package = package || (function (use){ 
 var PackageJS = PackageJS ||  function (js){
+
+if(!js.isNode)
+  js.isNode = module ? module.exports ? true: false:false;
+
 js.lang = js.lang || {}; js.lib = js.lib || {};
 js.lang.object = function(body){return function(){ var _={}; body(_); return _; }; }
 js.instance = function(){
@@ -96,6 +100,6 @@ return js; }({});
 PackageJS.lib = PackageJS.lib || 
 { accessor : { final: Object.freeze }}; return PackageJS; })();
 
-  
-
+  if(package.isNode)
+    module.exports = package;
   
