@@ -12,9 +12,14 @@ if(package.isNode)
    module.exports = package; 
 
 package.utility = {};
-package.utility.Arrays = {};
-package.utility.Maps = {};
-package.utility.Check = {};
+
+
+package.utility.Strings = (function(){
+	return package.lang.object ( function (public){
+     public.contain = function ( str,search ) {
+	      return ( str.indexOf(search) +1)?true:false;  }
+    } )();
+})();
 
 package.utility.Arrays = (function(){
 	return package.lang.object ( function (public){
@@ -27,22 +32,24 @@ package.utility.Arrays = (function(){
 })();
 package.utility.Maps = (function(){
 	return package.lang.object ( function (public){	
-     public.dig = function(map,list){
-           var temp  = list.shift();
-            if(temp){
-              if(!package.utility.Check.forObject(map)){map = {};}
-             map[ temp ] = public.dig(map[temp],list);
-           }else return {};
-            return map;
-        }  
+  
       } )();
 })();
 
-package.utility.Check = (function(){
+package.utility.Objects = (function(){
 	return package.lang.object ( function (public){
-     public.forObject = function(o) {
-  return (o instanceof Object && !(o instanceof Array)) ? true : false;
-  };    
+	    
+    public.typeIs = function(o) { return o instanceof Object && !(o instanceof Array); };    
+    public.isExsistKey = function(o) { return (Object.keys(o).length) ? true : false;  }; 
+    public.isContainKey = function(o,key){ return key in o;  }
+    public.dig = function(map,list){
+           var temp  = list.shift();
+            if(temp){
+              if(!public.typeIs(map)){map = {};}
+             map[ temp ] = public.dig(map[temp],list);
+           }else return {};
+            return map;
+        }
       } )();
 })();
 

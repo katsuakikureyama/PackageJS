@@ -23,12 +23,15 @@ package.node.FileManager = (function(){
             if(!dirs){ return false; }
                var temp = "";
                var i = 0;while(i < dirs.length) {
-               var d = "."+base+temp+dirs[i];
+               var d = base+temp+dirs[i];
             if(!fs.existsSync(d))
                   fs.mkdirSync(d);
               temp += dirs[i]+"/";
               i=(i+1)|0; }
             }
+     public.readIfExsist = function(path){
+        return (fs.existsSync(path))?fs.readFileSync(path, 'utf-8' ) : false;
+     }
      public.finder = function(p,success) {
        let files = fs.readdirSync(p);
        files.filter(function(f){
@@ -40,7 +43,7 @@ package.node.FileManager = (function(){
     public.zip = function(dir_str,filename,to){
      let dirs = dir_str.split("/");
      public.mkdir_all(dirs,"/");
-     var output = fs.createWriteStream("."+dir_str+filename+'.zip');
+     var output = fs.createWriteStream(dir_str+filename+'.zip');
      var archive = archiver('zip');
         output.on('close', function () {
          console.log(archive.pointer() + ' total bytes');
