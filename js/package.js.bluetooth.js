@@ -9,13 +9,13 @@ http://opensource.org/licenses/mit-license.php
 
 /*  you should use ES6 notation  */
 
-package.io = {};
+package.io = package.io||{};
 package.io.bluetooth = function(){
     
      var services = [{service:[]}];
      var characteristics = [];
   
-	return js.lang.object ( function (public){
+	return package.lang.object ( function (public){
       
         public.set_scan_service = function(service){
                this.services[0].service.push(service);

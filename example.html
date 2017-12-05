@@ -17,7 +17,11 @@ pre,code{margin:8%;}
 <!-- SCRIPTS -->
 <article class="main">
 <script src="./js/package.js"></script>
+ <script src="./js/package.js.html.js"></script> 
 <script>
+
+
+package.loader.import('html');
 /* for test */
    function printProperty(p) {
 		for(var propName in p) {

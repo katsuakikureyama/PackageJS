@@ -8,18 +8,19 @@ http://opensource.org/licenses/mit-license.php
 */
 if(!package)
   var package = require("./package.js");
-if(package.isNode)
+if(package.inNodeJS)
    module.exports = package; 
 
-package.html = {};
+package.html = package.html ||{};
 
 package.html.Dom = (function(){
 return package.lang.object ( function (public){	
       } )();
 })();
 package.html.Tag = (function(){
-package.html = {};
-return package.lang.object ( function (public){	    
+//     var Strings = package.utility.Strings ;
+return package.lang.object ( function (public){    
+        
       })();
 })();
 

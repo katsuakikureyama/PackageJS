@@ -11,8 +11,7 @@ if(!package)
 if(package.isNode)
    module.exports = package; 
 
-package.utility = {};
-
+package.utility = package.utility||{};
 
 package.utility.Strings = (function(){
 	return package.lang.object ( function (public){

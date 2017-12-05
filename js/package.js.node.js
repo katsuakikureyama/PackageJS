@@ -11,7 +11,7 @@ http://opensource.org/licenses/mit-license.php
 
 const package = require("./package.js");
 
-package.node = {};
+package.node = package.node||{};
 package.node.FileManager = (function(){
 	return package.lang.object ( function (public){
         const fs = require('fs');
