@@ -15,10 +15,10 @@ http://opensource.org/licenses/mit-license.php
 
 var package = package || (function (use){ 
 var PackageJS = PackageJS ||  function (js){
-	
-if( ! (js.inNodeJS === true || js.inNodeJS === false) )
-   try{    if(module === undefined)
-                if(module.exports === undefined) js.inNodeJS = true;
+	if( js.inNodeJS === undefined )
+     try{
+     	    if( module )
+                if(module.exports ) js.inNodeJS = true;
    } catch( err ){ js.inNodeJS = false; } 
 
 js.lang = js.lang || {}; js.lib = js.lib || {};
@@ -108,7 +108,7 @@ return js.lang.object ( function (public){
       }
       this.imports = function(name){ module.exports =  name + ext; }
       this.scriptTag = function(name){
-         var scripts = document.getElementsByTagName( 'script' );
+        var scripts = document.getElementsByTagName( 'script' );
          var i = 0 ;while( i < scripts.length){ 
              if(li = scripts[i].src.lastIndexOf("package.js"))
                   {  name = scripts[i].src + "." + name + ".js";  break; } 
