@@ -121,7 +121,30 @@ return js.lang.object ( function (public){
       
       })();
 })();
-
+js.preloader =(function(){
+return js.lang.object ( function (public){    
+     var loads ; 
+     public.set = function (loads){
+     	if(!loads && typeof loads === "object"){ 
+     	  constant = loads;
+     	  Object.freeze(loads); } }  
+     public.get = function(name){
+             return loads[name];     
+       }
+      })();
+})(); 
+js.constants =(function(){
+return js.lang.object ( function (public){    
+     var constant ; 
+     public.set = function (con){
+     	if(!constant && typeof con === "object"){ 
+     	  constant = con;
+     	  Object.freeze(constant); } }  
+     public.get = function(name){
+             return constants[name];     
+       }
+      })();
+})(); 
 
 return js; }({});
 PackageJS.lib = PackageJS.lib || 
